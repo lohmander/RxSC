@@ -8,7 +8,6 @@ export function createContainer(actions, reducers,
         .merge(...reducers)
         .scan((state, [scope, reducer]) =>
             ({ ...state, [scope]: reducer(state[scope]) }))
-        .do(console.log)
         .publishReplay(1)
         .refCount();
 

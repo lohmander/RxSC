@@ -4,6 +4,20 @@ RxSC (ReactiveX State Container) uses the phenomenal RxJS library to provide a
 Redux-like state container, but with the power of RxJS. Thus the amount of 
 boilerplate code required to get up and running is greatly reduced (see [example](#example)).
 
+## Installation
+
+With npm
+
+```sh
+$ npm install --save rxsc
+```
+
+With yarn
+
+```sh
+$ yarn add rxsc
+```
+
 ## Terms
 
 Since some concepts of Redux has been merged, or does not translate directly

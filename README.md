@@ -15,7 +15,6 @@ With npm
 
 ```sh
 $ npm install --save rxsc
-t s
 ```
 
 With yarn

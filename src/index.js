@@ -45,12 +45,18 @@ export class Container {
      * @see Rx.Observable.subscribe
      */
     subscribe(...args) {
+        return this.getObservable().subscribe(...args);
+    }
+
+    /*
+     * Retrieves observable, and creates it if it doesn't already exists.
+     */
+    getObservable() {
         if (this.observable) {
-            return this.observable.subscribe(...args);
+            return this.observable;
         }
 
-        let initialState = this.transformers
-            .reduce((acc, t) => ({ ...acc, [t.name]: t.initialState }), {})
+        let initialState = this.getInitialState();
 
         this.observable = Observable.of(initialState)
             .merge(...(this.transformers.map(t => t.getObservable())))
@@ -59,7 +65,15 @@ export class Container {
             .publishReplay(1)
             .refCount();
 
-        return this.observable.subscribe(...args);
+        return this.observable;
+    }
+
+    /*
+     * Retrieves the initial state based on all transforms
+     */
+    getInitialState() {
+        return this.transformers
+            .reduce((acc, t) => ({ ...acc, [t.name]: t.initialState }), {});
     }
 }
 

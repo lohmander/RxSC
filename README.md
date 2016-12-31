@@ -59,7 +59,7 @@ container.actions$.increment(1);
 Putting it all together, it might look something like this
 
 ```javascript
-import { Transformer, Container } from 'rxjs';
+import { Transformer, Container } from 'rxsc';
 
 
 const transformer = new Transformer('count', 0, action => [

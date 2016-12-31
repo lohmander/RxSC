@@ -1,9 +1,9 @@
 {
-  "name": "rxstatecontainer",
+  "name": "rxsc",
   "version": "0.1.0",
   "main": "dist/index.js",
   "repository": {
-    "url": "git@github.com:lohmander/RxStateContainer.git",
+    "url": "git@github.com:lohmander/RxSC.git",
     "type": "git"
   },
   "scripts": {

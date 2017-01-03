@@ -1,6 +1,6 @@
 {
   "name": "rxsc",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "dist/index.js",
   "repository": {
     "url": "git@github.com:lohmander/RxSC.git",

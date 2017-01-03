@@ -104,7 +104,10 @@ export class Transformer {
      * @param {String} action Name of the action
      */
     createAction = (action) => {
-        this._actions = { ...this._actions, [action]: new Subject() };
+        if (!this._actions[action]) {
+            this._actions[action] = new Subject();
+        }
+
         return this._actions[action];
     }
 

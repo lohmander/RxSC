@@ -7,7 +7,7 @@ boilerplate code required to get up and running is greatly reduced (see [example
 ## Add-ons
 
 - [rxsc-react](https://github.com/lohmander/rxsc-react) For usage with React
-- rxsc-redux-compat (soon)
+- [rxsc-redux-compat](https://github.com/lohmander/rxsc-redux-compat) For dev usage with Redux tools
 
 ## Installation
 

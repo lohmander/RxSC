@@ -1,13 +1,14 @@
 {
   "name": "rxsc",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "main": "dist/index.js",
   "repository": {
     "url": "git@github.com:lohmander/RxSC.git",
     "type": "git"
   },
   "scripts": {
-    "build": "babel src --out-dir dist"
+    "build": "babel src --out-dir dist",
+    "prepublish": "babel src --out-dir dist"
   },
   "author": "CH Lohmander",
   "license": "MIT",

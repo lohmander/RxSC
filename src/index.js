@@ -2,14 +2,21 @@ import Rx, { Observable, Subject } from 'rxjs';
 
 
 /*
- * Remaps the subject methods `next` and `error` to the "root fucction" and
+ * Remaps the subject methods `next` and `error` to the "root function" and
  * error prop respectively.
  */
 function remapActions(actions) {
     return Object.keys(actions)
         .map(name => {
-            let action = (val) => actions[name].next(val);
-            action.error = (err) => actions[name].error(err);
+            let action = (val) => {
+                actions[name].next(val);
+                return actions[name];
+            };
+
+            action.error = (err) => {
+                actions[name].error(err);
+                return actions[name];
+            };
 
             return [name, action]
         })

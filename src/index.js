@@ -10,9 +10,10 @@ function remapActions(actions) {
         .map(name => {
             let action = (val) => {
                 actions[name].next(val);
-                return actions[name];
+                return action;
             };
 
+            action.hook = (id) =>  actions[name].hook.filter(([idB, _]) => idB === id);
             action.error = (err) => {
                 actions[name].error(err);
                 return actions[name];
@@ -113,6 +114,10 @@ export class Transformer {
     createAction = (action) => {
         if (!this._actions[action]) {
             this._actions[action] = new Subject();
+            this._actions[action].hook = new Subject();
+            this._actions[action].trigger = (id, ...args) => {
+                this._actions[action].hook.next([id, ...args]);
+            };
         }
 
         return this._actions[action];

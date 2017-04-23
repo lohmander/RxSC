@@ -103,7 +103,8 @@ export class Transformer {
         this.initialState = initialState;
         this.observable = Observable.of(() => initialState)
             .merge(...transforms(this.createAction))
-            .map(transformer => [name, transformer]);
+            .map(transformer => [name, transformer])
+            .onErrorResumeNext();
     }
 
     /*

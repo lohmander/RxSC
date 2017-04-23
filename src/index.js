@@ -98,12 +98,13 @@ export class Transformer {
      * @param {Function} transforms A function which will be passed `createAction`
      * and should return a list of actions (Subjects)
      */
-    constructor(name, initialState, transforms) {
+    constructor(name, initialState, transforms, failure = () => {}) {
         this.name = name;
         this.initialState = initialState;
         this.observable = Observable.of(() => initialState)
             .merge(...transforms(this.createAction))
             .map(transformer => [name, transformer])
+            .do(() => {}, failure)
             .onErrorResumeNext();
     }
 
